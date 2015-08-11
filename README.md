@@ -8,23 +8,27 @@ Usage
 require 'CyberSourceSOAPAPI/Client.php';
 require 'CyberSourceSOAPAPI/Request.php';
 
-// Config.
+// API credentials.
 $merchantID         = 'foo';
 $transactionKey     = 'bar';
 
+// Create the client object.
 $client = new \CyberSourceSOAPAPI\Client($merchantID,
                                             $transactionKey,
                                             \CyberSourceSOAPAPI\Client::MODE_LIVE);
 
+// The request's reference code.
 $merchantReferenceCode = 'qux';
 
+// Create the request object.
 $request = new \CyberSourceSOAPAPI\Request($client, $merchantReferenceCode);
 
-// Your request parameters.
+// Set request parameters...
 $ccAuthService = new \stdClass();
 $ccAuthService->run = 'true';
 $request->ccAuthService = $ccAuthService;
 
+// Make the SOAP call.
 $response = $client->runTransaction($request);
 
 // Output response.
