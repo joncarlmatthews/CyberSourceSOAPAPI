@@ -13,60 +13,42 @@
 
 namespace CyberSourceSOAPAPI;
 
-/*
-@usage 
-
-$client = new \CyberSourceSOAPClient($merchandID, 
-                                    $transactionKey,
-                                    CyberSourceSOAPClient::MODE_TEST);
-
-$request = new \CyberSourceSOAPRequest(123);
-
-$ccCaptureService = new \\stdClass();
-$ccCaptureService->run = 'true';
-$request->ccCaptureService = $ccCaptureService;
-
-$resp = $client->runTransaction($request);
-
-*/
-
-
 class Client extends \SoapClient 
 {
     /**
-     * Instance var. Desc.
+     * Instance var. The Merchant ID API credential.
      * 
-     * @access public
-     * @var private
+     * @access private
+     * @var string
      */
     private $_merchantID;
 
     /**
-     * Instance var. Desc.
+     * Instance var. The Transaction Key API credential.
      * 
-     * @access public
-     * @var private
+     * @access private
+     * @var string
      */
     private $_transactionKey;
 
     /**
-     * Instance var. Desc.
+     * Instance var. Run mode. live|test
      * 
-     * @access public
-     * @var private
+     * @access private
+     * @var string
      */
     private $_mode;
 
     /**
-     * Instance var. Desc.
+     * Instance var. WSDL
      * 
-     * @access public
-     * @var private
+     * @access private
+     * @var string
      */
     private $_WSDL;
 
     /**
-     * Class var. Desc.
+     * Class var. Constant for live mode.
      * 
      * @access public
      * @var string
@@ -74,7 +56,7 @@ class Client extends \SoapClient
     const MODE_LIVE = 'live';
 
     /**
-     * Class var. Desc.
+     * Class var. Constant for test mode.
      * 
      * @access public
      * @var string
@@ -82,7 +64,7 @@ class Client extends \SoapClient
     const MODE_TEST = 'test';
 
     /**
-     * Class var. Desc.
+     * Class var. live WSDL URL.
      * 
      * @access public
      * @var string
@@ -90,7 +72,7 @@ class Client extends \SoapClient
     const WSDL_LIVE = 'https://ics2.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.109.wsdl';
 
     /**
-     * Class var. Desc.
+     * Class var. Test WSDL URL.
      * 
      * @access public
      * @var string
@@ -98,13 +80,23 @@ class Client extends \SoapClient
     const WSDL_TEST = 'https://ics2wstest.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.109.wsdl';
 
     /**
-     * Class var. Desc.
+     * Class var. API namespace.
      * 
      * @access public
      * @var string
      */
     const API_NAMESPACE = 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd';
 
+    /**
+     * Constructor.
+     *
+     * @access public
+     * @param string    $merchandID
+     * @param string    $transactionKey
+     * @param string    $mode
+     * @param array     $options
+     * @return \CyberSourceSOAPAPI\Client
+     */
     public function __construct($merchandID, 
                                 $transactionKey,
                                 $mode, 
@@ -186,6 +178,12 @@ class Client extends \SoapClient
         $this->__setSoapHeaders(array($header)); 
     }
 
+    /**
+     * Getter for @link \CyberSourceSOAPAPI\Client::$_merchantID.
+     *
+     * @access public
+     * @return string
+     */
     public function getMerchantID()
     {
         return $this->_merchantID;

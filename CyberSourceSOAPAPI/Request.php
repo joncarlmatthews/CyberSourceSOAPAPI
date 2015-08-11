@@ -16,7 +16,7 @@ namespace CyberSourceSOAPAPI;
 class Request 
 {
     /**
-     * Instance property. Desc.
+     * Instance property. The request's reference code.
      * 
      * @access public
      * @var public
@@ -24,7 +24,7 @@ class Request
     public $merchantReferenceCode = null;
 
     /**
-     * Instance property. Desc.
+     * Instance property. The merchant ID.
      * 
      * @access public
      * @var public
@@ -32,7 +32,7 @@ class Request
     public $merchantID = null;
 
     /**
-     * Instance property. Desc.
+     * Instance property. The request's client library meta.
      * 
      * @access public
      * @var public
@@ -40,7 +40,7 @@ class Request
     public $clientLibrary = 'https://github.com/joncarlmatthews/CyberSourceSOAPAPI';
 
     /**
-     * Instance property. Desc.
+     * Instance property. The request's client library version meta.
      * 
      * @access public
      * @var public
@@ -48,13 +48,21 @@ class Request
     public $clientLibraryVersion = null;
 
     /**
-     * Instance property. Desc.
+     * Instance property. The request's client environment meta.
      * 
      * @access public
      * @var public
      */
     public $clientEnvironment = null;
 
+    /**
+     * Constructor. Creates an instance for passing to the client object.
+     *
+     * @access public
+     * @param \CyberSourceSOAPAPI\Client        $client                 The client object
+     * @param string                            $merchantReferenceCode  Merchant reference code.
+     * @return \CyberSourceSOAPAPI\Request
+     */
     public function __construct(\CyberSourceSOAPAPI\Client $client,
                                     $merchantReferenceCode)
     {
