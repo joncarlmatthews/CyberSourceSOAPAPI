@@ -126,18 +126,18 @@ class Client extends \SoapClient
             $this->_merchantID,
             XSD_STRING,
             NULL,
-            SELF::API_NAMESPACE,
+            self::API_NAMESPACE,
             NULL,
-            SELF::API_NAMESPACE
+            self::API_NAMESPACE
         );
 
         $soapPassword = new \SoapVar(
             $this->_transactionKey,
             XSD_STRING,
             NULL,
-            SELF::API_NAMESPACE,
+            self::API_NAMESPACE,
             NULL,
-            SELF::API_NAMESPACE
+            self::API_NAMESPACE
         );
 
         $auth = new \stdClass();
@@ -147,9 +147,9 @@ class Client extends \SoapClient
         $soapAuth = new \SoapVar(
             $auth,
             SOAP_ENC_OBJECT,
-            NULL, SELF::API_NAMESPACE,
+            NULL, self::API_NAMESPACE,
             'UsernameToken',
-            SELF::API_NAMESPACE
+            self::API_NAMESPACE
         ); 
 
         $token = new \stdClass();
@@ -159,21 +159,21 @@ class Client extends \SoapClient
             $token,
             SOAP_ENC_OBJECT,
             NULL,
-            SELF::API_NAMESPACE,
+            self::API_NAMESPACE,
             'UsernameToken',
-            SELF::API_NAMESPACE
+            self::API_NAMESPACE
         );
 
         $security =new \SoapVar(
             $soapToken,
             SOAP_ENC_OBJECT,
             NULL,
-            SELF::API_NAMESPACE,
+            self::API_NAMESPACE,
             'Security',
-            SELF::API_NAMESPACE
+            self::API_NAMESPACE
         );
 
-        $header = new \SoapHeader(SELF::API_NAMESPACE, 'Security', $security, true); 
+        $header = new \SoapHeader(self::API_NAMESPACE, 'Security', $security, true); 
 
         $this->__setSoapHeaders(array($header)); 
     }
