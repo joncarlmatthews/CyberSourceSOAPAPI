@@ -69,7 +69,7 @@ class Client extends \SoapClient
      * @access public
      * @var string
      */
-    const WSDL_LIVE = 'https://ics2.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.109.wsdl';
+    const WSDL_LIVE = 'https://ics2ws.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.109.wsdl';
 
     /**
      * Class var. Test WSDL URL.
