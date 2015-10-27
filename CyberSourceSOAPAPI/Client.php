@@ -108,9 +108,9 @@ class Client extends \SoapClient
         switch ($mode){
 
             case self::MODE_LIVE:
-                break;
                 $this->_mode = self::MODE_LIVE;
                 $this->_WSDL = self::WSDL_LIVE;
+                break;
 
             case self::MODE_TEST:
             default:
