@@ -1,4 +1,4 @@
-# CyberSourceSOAPAPI
+# PHP CyberSource SOAP API Class Library
 
 Simple PHP library for making SOAP requests to the CyberSource API. Unlike the official library, the class API allows for the CyberSource API credentials to be supplied as paramaters rather than in a configuration file allowing greater flexibility.
 
